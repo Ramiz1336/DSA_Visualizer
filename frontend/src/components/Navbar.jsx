@@ -27,7 +27,7 @@ const Navbar = () => {
           DSA Visualizer
         </NavLink>
 
-        
+        {/* Mobile Menu Button */}
         <button className="sm:hidden focus:outline-none" onClick={toggleMenu}>
           {isOpen ? (
             <XMarkIcon className="w-6 h-6 text-white" />
@@ -36,7 +36,7 @@ const Navbar = () => {
           )}
         </button>
 
-        
+        {/* Desktop Nav Links */}
         <nav className="hidden sm:flex gap-4">
           {navLinks.map(link => (
             <NavLink
