@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,19 +27,16 @@ const Navbar = () => {
           DSA Visualizer
         </NavLink>
 
-        <button
-          className="sm:hidden focus:outline-none"
-          onClick={toggleMenu}
-        >
-          <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-            {isOpen ? (
-              <path d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
+        
+        <button className="sm:hidden focus:outline-none" onClick={toggleMenu}>
+          {isOpen ? (
+            <XMarkIcon className="w-6 h-6 text-white" />
+          ) : (
+            <Bars3Icon className="w-6 h-6 text-white" />
+          )}
         </button>
 
+        
         <nav className="hidden sm:flex gap-4">
           {navLinks.map(link => (
             <NavLink
@@ -62,6 +60,7 @@ const Navbar = () => {
         </nav>
       </div>
 
+      {/* Mobile Nav Links */}
       {isOpen && (
         <div className="sm:hidden bg-indigo-500 px-4 pb-4 pt-2 space-y-2 transition-all">
           {navLinks.map(link => (
